@@ -28,7 +28,7 @@ def main():
     clock = pygame.time.Clock() # Initialize the clock objecct
     
     # Define font properties
-    font_name = "Caveat-VariableFont_wght.ttf"
+    font_name = "FreeMono(1).ttf"
     font_color1 = config.RED    # Use a color from config
     font_color2 = config.BLUE
     font_color3 = config.GREEN
@@ -73,6 +73,12 @@ def main():
         
         # Example 2: Draw italic and bold text
         draw_text(screen, "Press Start!!", font_size_bold_italic, font_name, font_color2, text_position_2, italic=True, bold=True)
+
+        # Example 1: Draw normal text
+        draw_text(screen, "You Lose!!", font_size_normal, custom_font_name, font_color1, text_position_1, italic=True)
+        
+        # Example 2: Draw italic and bold text
+        draw_text(screen, "Round 2...Fight!!", font_size_bold_italic, custom_font_name, font_color2, text_position_2, italic=True, bold=True)
 
         pygame.display.flip()  # Update the display
 
