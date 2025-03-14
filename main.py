@@ -67,13 +67,13 @@ def main():
         screen.fill(config.WHITE) 
 
         # Example 1: Draw normal text
-        draw_text(screen, "You Win!!", 50, 50, font_size_custom, font_color1)
+        draw_text(screen, "Matthew Hall", 50, 50, font_size_custom, font_color1)
 
         # Example 1: Draw normal text
-        draw_text(screen, "You Lose!!", 423, 67, font_size_custom, font_color2, italic=True)
+        draw_text(screen, "Web and App Development PM", 423, 67, font_size_custom, font_color2, italic=True)
         
         # Example 2: Draw italic and bold text
-        draw_text(screen, "Round 2...Fight!!", 300, 300, font_size_custom, font_color3, bold=True)
+        draw_text(screen, "Career Tech Center", 300, 300, font_size_custom, font_color3, bold=True)
 
         pygame.display.flip()  # Update the display
 
