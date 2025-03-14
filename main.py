@@ -5,6 +5,8 @@
 import pygame
 import sys
 import config  # Import the config module
+import random
+
 
 def init_game():
     pygame.init()
@@ -39,12 +41,8 @@ def main():
     # Using a True Type Font (.ttf)
     custom_font_name = "Caveat-VariableFont_wght.ttf"
 
-    # Define x,y coordinate pairs for top left of text rectangle (stamp)
-    text_position_1 = [50, 50]
-    text_position_2 = [225, 135]
-    text_position_3 = [220, 370]
 
-    def draw_text(screen, text, font_size, font_name, color, position, anti_aliased=True, bold=False, italic=False):
+    def draw_text(screen, text, x, y, font_size, color, font_name=None, bold=False, italic=False):
         if font_name:
             font = pygame.font.Font(font_name, font_size)
         else:
@@ -54,7 +52,7 @@ def main():
         font.set_italic(italic)
     
         text_surface = font.render(text, True, color)
-        surface.blit(text_surface, (x, y))
+        screen.blit(text_surface, (x, y))
     
 
 
@@ -69,16 +67,13 @@ def main():
         screen.fill(config.WHITE) 
 
         # Example 1: Draw normal text
-        draw_text(screen, "You Win!!", font_size_normal, font_name, font_color1, text_position_1, italic=True)
-        
-        # Example 2: Draw italic and bold text
-        draw_text(screen, "Press Start!!", font_size_bold_italic, font_name, font_color2, text_position_2, italic=True, bold=True)
+        draw_text(screen, "You Win!!", 50, 50, font_size_custom, font_color1)
 
         # Example 1: Draw normal text
-        draw_text(screen, "You Lose!!", font_size_normal, custom_font_name, font_color1, text_position_1, italic=True)
+        draw_text(screen, "You Lose!!", 423, 67, font_size_custom, font_color2, italic=True)
         
         # Example 2: Draw italic and bold text
-        draw_text(screen, "Round 2...Fight!!", font_size_bold_italic, custom_font_name, font_color2, text_position_2, italic=True, bold=True)
+        draw_text(screen, "Round 2...Fight!!", 300, 300, font_size_custom, font_color3, bold=True)
 
         pygame.display.flip()  # Update the display
 
