@@ -42,7 +42,7 @@ def main():
     custom_font_name = "Caveat-VariableFont_wght.ttf"
 
 
-    def draw_text(screen, text, x, y, font_size, color, font_name=None, bold=False, italic=False):
+    def draw_text(screen, text, x, y, font_size, color, font_name=None, bold=False, italic=False, rotation=0):
         if font_name:
             font = pygame.font.Font(font_name, font_size)
         else:
@@ -52,7 +52,16 @@ def main():
         font.set_italic(italic)
     
         text_surface = font.render(text, True, color)
-        screen.blit(text_surface, (x, y))
+
+        # Rotate the text surface
+        if rotation != 0:
+            text_surface = pygame.transform.rotate(text_surface, rotation)
+
+        # Get the new rectangle for the rotated surface
+        text_rect = text_surface.get_rect(center=(x, y))
+
+        # Blit the rotated text surface onto the main surface
+        screen.blit(text_surface, text_rect.topleft)
     
 
 
@@ -67,7 +76,7 @@ def main():
         screen.fill(config.WHITE) 
 
         # Example 1: Draw normal text
-        draw_text(screen, "Matthew Hall", 50, 50, font_size_custom, font_color1)
+        draw_text(screen, "Matthew Hall", 100, 100, font_size_custom, font_color1, rotation=90)
 
         # Example 1: Draw normal text
         draw_text(screen, "Web and App Development PM", 423, 67, font_size_custom, font_color2, italic=True)
